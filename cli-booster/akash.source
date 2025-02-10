@@ -575,7 +575,7 @@ function akash_accept() {
   usd_per_uusdc=1   # Since uausdc is a dollar stablecoin (mainnet)
 
 
-  PROVIDERS="$($AKASH_BIN query provider list --page 1 --limit 1000)"
+  PROVIDERS="$($AKASH_BIN query provider list --page 1 --limit 10000)"
   printf "\trate\tmonthly\tusd\tdseq/gseq/oseq\tprovider\t\t\t\t\thost\n"
   echo "$PL" | jq -r '.bids[].bid | [.price.amount, .price.denom, (.bid_id | .dseq, .gseq, .oseq, .provider)] | @tsv' | while read rate denom dseq gseq oseq p; do
     # Select appropriate USD conversion rate based on denom
@@ -781,7 +781,7 @@ function akash_events() {
 
 function akash_providers() {
   export -n AKASH_PROVIDER
-  $AKASH_BIN query provider list --limit 1000 | jq -r '.providers[] | [ .host_uri, .owner, .attributes[].value ] | @csv' | sort -d
+  $AKASH_BIN query provider list --limit 10000 | jq -r '.providers[] | [ .host_uri, .owner, .attributes[].value ] | @csv' | sort -d
   export AKASH_PROVIDER
 }
 
