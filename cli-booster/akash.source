@@ -20,11 +20,11 @@ export AKASH_BROADCAST_MODE=sync
 
 # set the gas price to pay the fees.
 # fees = ceil(gasLimit * gasPrices)
-# Akash RPC nodes usually set --minimum-gas-prices=0.0025uakt hence we will
-# also use --gas-prices=0.0025uakt
+# Akash RPC nodes usually set --minimum-gas-prices=0.025uakt hence we will
+# also use --gas-prices=0.025uakt
 # --gas - gas limit to set per-transaction; set to "auto" to calculate sufficient gas automatically (default 200000)
 export AKASH_GAS=auto
-export AKASH_GAS_PRICES=0.0025uakt
+export AKASH_GAS_PRICES=0.025uakt
 # --gas-adjustment - adjustment factor to be multiplied against the estimate returned by the tx simulation.
 #                    if the gas limit is set manually this flag is ignored.
 # increase this parameter if you see "Out of gas" errors often.
